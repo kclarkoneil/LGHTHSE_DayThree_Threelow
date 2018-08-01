@@ -15,26 +15,39 @@ int main(int argc, const char * argv[]) {
 //        Create a Dice class.
 //        It should have a property to store its current value, and a method to randomize that value.
 //        Make five instances of the Dice class, randomize their values and print them.
+// ABOVE DONE
+//
+//        When a user inputs the word roll, randomize the values and print them.
+//        Place this code inside a while loop, so users can re-roll as often as needed.
+// ABOVE DONE
         
-        Dice *oneDice = [[Dice alloc] init];
-        [oneDice rollDice];
-        NSLog(@"%i", oneDice.currentValue);
+        char inputChars[255];
+
+        while (true) {
+
+            NSLog(@"Prompt:");
+            fgets(inputChars, 255, stdin);
+            NSString *inputwithEnter = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
+            NSString *finalInputString = [inputwithEnter stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+            
+            NSLog(@"User Enter: %@", finalInputString); // input check
+            
+            Dice *oneDice = [[Dice alloc] init];
+            NSLog(@"%i", oneDice.currentValue);
+            
+            Dice *twoDice = [[Dice alloc] init];
+            NSLog(@"%i", twoDice.currentValue);
+            
+            Dice *threeDice = [[Dice alloc] init];
+            NSLog(@"%i", threeDice.currentValue);
+            
+            Dice *fourDice = [[Dice alloc] init];
+            NSLog(@"%i", fourDice.currentValue);
+            
+            Dice *fiveDice = [[Dice alloc] init];
+            NSLog(@"%i", fiveDice.currentValue);
         
-        Dice *twoDice = [[Dice alloc] init];
-        [twoDice rollDice];
-        NSLog(@"%i", twoDice.currentValue);
-        
-        Dice *threeDice = [[Dice alloc] init];
-        [threeDice rollDice];
-        NSLog(@"%i", threeDice.currentValue);
-        
-        Dice *fourDice = [[Dice alloc] init];
-        [fourDice rollDice];
-        NSLog(@"%i", fourDice.currentValue);
-        
-        Dice *fiveDice = [[Dice alloc] init];
-        [fiveDice rollDice];
-        NSLog(@"%i", fiveDice.currentValue);
+        }
         
         
 

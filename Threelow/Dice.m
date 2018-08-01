@@ -15,4 +15,13 @@
     return _currentValue;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self rollDice];
+    }
+    return self;
+}
+
 @end
