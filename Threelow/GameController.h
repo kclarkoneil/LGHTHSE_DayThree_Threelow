@@ -13,10 +13,19 @@
 
 @property NSMutableArray *diceCollection;
 @property NSMutableSet *diceHeld;
+@property int scoreTotalValue;
+
+
+
+
 
 - (void) newGame;
-
-- (void) rollDice; 
-
+- (void) rollDice;
 - (void) holdDie: (int) diceChosen;
+- (void) unholdDie: (int) diceChosen;
+- (void) resetDice;
+- (int) scoreTotal;
+
+
+
 @end

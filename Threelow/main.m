@@ -26,9 +26,11 @@ int main(int argc, const char * argv[]) {
 // If you are not already doing so, now is a good time to refactor your code to store your Dice instances in an array that is created before your while loop.
         
         char inputChars[255];
+
+        //NSNull *null;
+        
         
         GameController *testGame = [[GameController alloc] init];
-        
         [testGame newGame];
 
         
@@ -64,8 +66,25 @@ int main(int argc, const char * argv[]) {
                 }
             }
             
+            if ([collected isEqualToString:@"unhold"]) {
+                if (splitInput.count == 2) {
+                    NSString *choiceIndex = splitInput[1];
+                    NSInteger choiceNumber = [choiceIndex integerValue];
+                    [testGame unholdDie:choiceNumber];
+                }
+            }
+            
+            if ([finalInputString isEqualToString:@"reset"]) {
+                [testGame resetDice];
+            }
         
-        
+            if ([finalInputString isEqualToString:@"quit"]) {
+                break;
+            }
+            
+            [testGame scoreTotal];
+            
+            
         }
         
         

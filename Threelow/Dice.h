@@ -11,6 +11,7 @@
 @interface Dice : NSObject
 
 @property int currentValue;
+@property NSArray *diceImages;
 
 - (int) rollDice;
 

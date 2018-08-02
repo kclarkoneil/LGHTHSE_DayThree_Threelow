@@ -10,6 +10,8 @@
 
 @implementation Dice
 
+
+
 - (int) rollDice{
     _currentValue = arc4random_uniform(6) + 1;
     return _currentValue;
@@ -20,8 +22,13 @@
     self = [super init];
     if (self) {
         [self rollDice];
+        
+        // HOW DO WE USE NULL FOR ARRAYSS --0------->>>>>>>>> NSNull *null;
+        _diceImages = @[@"a", @"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
     }
     return self;
 }
+
+
 
 @end
