@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Dice.h"
+#import "GameController.h"
+
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -24,44 +27,43 @@ int main(int argc, const char * argv[]) {
         
         char inputChars[255];
         
-        NSMutableArray *diceCollection = [[NSMutableArray alloc] init];
+        GameController *testGame = [[GameController alloc] init];
         
-        NSMutableSet *diceHeld = [[NSMutableSet alloc] init];
+        [testGame newGame];
+
         
         while (true) {
-            Dice *oneDice = [[Dice alloc] init];
-            [diceCollection addObject:oneDice];
-            NSLog(@"1 [%i]", oneDice.currentValue);
             
-            Dice *twoDice = [[Dice alloc] init];
-            NSLog(@"2 [%i]", twoDice.currentValue);
-            [diceCollection addObject:twoDice];
-
-            Dice *threeDice = [[Dice alloc] init];
-            NSLog(@"3 [%i]", threeDice.currentValue);
-            [diceCollection addObject:threeDice];
-
-            Dice *fourDice = [[Dice alloc] init];
-            NSLog(@"4 [%i]", fourDice.currentValue);
-            [diceCollection addObject:fourDice];
-
-            Dice *fiveDice = [[Dice alloc] init];
-            NSLog(@"5 [%i]", fiveDice.currentValue);
-            [diceCollection addObject:fiveDice];
             
 //            for (int i = 0; i < diceCollection.count; i++) {
 //                NSLog(@"%i diceroll: %@"i, diceCollection);
 //            }
 
-
+            
+            
             
             
             NSLog(@"Prompt:");
             fgets(inputChars, 255, stdin);
             NSString *inputwithEnter = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
             NSString *finalInputString = [inputwithEnter stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
-
-            NSLog(@"User Enter: %@", finalInputString); // input check
+            NSArray *splitInput = [finalInputString componentsSeparatedByString:@" "];
+            NSString * collected = [splitInput firstObject];
+            
+            //NSLog(@"User Enter: %@", finalInputString); // input check
+            
+            if ([finalInputString isEqualToString:@"roll"]) {
+                [testGame rollDice];
+            }
+            
+            if ([collected isEqualToString:@"hold"]) {
+                if (splitInput.count == 2) {
+                NSString *choiceIndex = splitInput[1];
+                NSInteger choiceNumber = [choiceIndex integerValue];
+                    [testGame holdDie:choiceNumber];
+                }
+            }
+            
         
         
         }

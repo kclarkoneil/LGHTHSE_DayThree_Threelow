@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dice.h"
 
 @interface GameController : NSObject
 
+@property NSMutableArray *diceCollection;
+@property NSMutableSet *diceHeld;
+
+- (void) newGame;
+
+- (void) rollDice; 
+
+- (void) holdDie: (int) diceChosen;
 @end
