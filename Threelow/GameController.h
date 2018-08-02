@@ -24,7 +24,7 @@
 - (void) holdDie: (int) diceChosen;
 - (void) unholdDie: (int) diceChosen;
 - (void) resetDice;
-- (int) scoreTotal;
+- (void) scoreTotal;
 
 
 

@@ -40,11 +40,6 @@ int main(int argc, const char * argv[]) {
 //            for (int i = 0; i < diceCollection.count; i++) {
 //                NSLog(@"%i diceroll: %@"i, diceCollection);
 //            }
-
-            
-            
-            
-            
             NSLog(@"Prompt:");
             fgets(inputChars, 255, stdin);
             NSString *inputwithEnter = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
@@ -82,7 +77,7 @@ int main(int argc, const char * argv[]) {
                 break;
             }
             
-            [testGame scoreTotal];
+           // [testGame scoreTotal];
             
             
         }

@@ -41,7 +41,7 @@
 - (void) rollDice{
     // if heldDice has die, then don't roll
     
-    for (int i =0; i < _diceCollection.count; i++){
+    for (int i = 0; i < _diceCollection.count; i++){
         Dice *dice = _diceCollection[i];
     
     //for (Dice *dice in _diceCollection) {
@@ -54,6 +54,7 @@
         }
         
     }
+    [self scoreTotal];
 }
 
 - (void) holdDie: (int) diceChosen {
@@ -68,13 +69,17 @@
     [_diceHeld removeAllObjects];
 }
 
-- (int) scoreTotal;{
-    for (Dice *count in _diceCollection){
-        _scoreTotalValue = _scoreTotalValue + count.currentValue;
+- (void) scoreTotal;{
+//  for (int i = 0; i < _diceCollection.count; i++){
+    for (int i = 0; i < _diceCollection.count; i++){
+        Dice *di = self.diceCollection[i];
+        if (di.currentValue != 3){
+            _scoreTotalValue = _scoreTotalValue + di.currentValue;
+        }
     }
+
     NSLog(@"Current Score Total: %i", _scoreTotalValue);
     _scoreTotalValue = 0;
-    return _scoreTotalValue;
 }
 
 
